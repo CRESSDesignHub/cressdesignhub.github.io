@@ -9,4 +9,9 @@
 .framework-component-link:after{content:"›";flex:0 0 auto;color:#8d9d95;font-size:16px;line-height:1;transition:color .16s,transform .16s}
 .framework-component-link:hover{color:var(--green-dark);background:#edf7f3}
 .framework-component-link:hover:after{color:var(--green-dark);transform:translateX(2px)}
-.framework-component-link:focus-visible{outline:2px solid var(--green);outline-offset:1px;border-radius:2px}
+.framework-component-link:focus-visible{outline:2px solid var(--green);outline-offset:1px;border-radius:2px}/* Actual tool inventory in the panoramic architecture */
+.framework-tool-group>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:0 12px;padding:6px 10px}
+.framework-tool-link{appearance:none;display:flex;align-items:center;width:100%;min-width:0;border:0;border-bottom:1px solid #e8ece9;background:transparent;padding:5px 3px;color:#40534c;font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;text-align:left;cursor:pointer;overflow-wrap:anywhere;transition:color .16s,background .16s}
+.framework-tool-link:hover{color:var(--green-dark);background:#edf7f3}
+.framework-tool-link:focus-visible{outline:2px solid var(--green);outline-offset:1px;border-radius:2px}
+.framework-tool-group>div .framework-tool-link:nth-last-child(-n+2){border-bottom:0}
