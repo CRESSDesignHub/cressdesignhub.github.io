@@ -85,6 +85,48 @@ Error generating stack: `+e.message+`
     "项目迁移中批量翻译多个文件或整个源码目录"
   ],
   "repositoryUrl": "https://github.com/Quackster/Ollama.CodeTranslator"
+},
+{
+  "id": "TL064",
+  "name": "Chaos Mesh",
+  "category": "测试",
+  "summary": "面向 Kubernetes 的开源混沌工程平台，可在受控实验中模拟 Pod、网络和存储异常，验证分布式系统的容错与恢复能力。",
+  "input": "通过 YAML 或 Dashboard 定义的实验对象、故障类型、持续时间与调度规则，以及目标 Kubernetes 集群或部署 Chaosd 的主机。",
+  "process": "控制器解析实验配置，在选定范围内执行故障模拟，跟踪实验进度，并在结束时清理实验。",
+  "output": "实验状态、执行日志和 Dashboard 时间线。结合 Prometheus、Grafana 等监控工具，可比较实验前后的系统指标，评估恢复表现。",
+  "origin": "Chaos Mesh 官方文档",
+  "sourceUrl": "https://chaos-mesh.org/docs/",
+  "access": "可在自有 Kubernetes 集群部署，通过 Dashboard 或 YAML 管理实验。配合 Chaosd 可覆盖物理机与虚拟机。",
+  "maturity": "已发布稳定版本，CNCF 孵化级项目。",
+  "license": "Apache-2.0",
+  "scenarios": [
+    "微服务与分布式系统韧性测试，验证服务降级、熔断与重试机制",
+    "数据库与存储中间件高可用演练，评估主从切换和数据一致性",
+    "CI/CD 流水线中的自动化混沌测试，在发布前发现架构单点",
+    "生产环境全链路压测与容灾演练"
+  ],
+  "repositoryUrl": "https://github.com/chaos-mesh/chaos-mesh"
+},
+{
+  "id": "TL065",
+  "name": "ChaosBlade",
+  "category": "测试",
+  "summary": "阿里巴巴开源的混沌工程工具，可在主机、容器和应用层开展故障演练，验证服务的高可用与容错能力。",
+  "input": "实验目标、故障类型、匹配条件、持续时间，以及目标主机、容器、Kubernetes 集群或应用服务。",
+  "process": "将配置解析为实验目标、动作和匹配条件，在选定范围内执行演练，跟踪状态，并在实验结束时撤销故障。",
+  "output": "实验标识（UID）、执行状态和操作日志。结合监控平台可记录资源指标和业务波动，供演练复盘。",
+  "origin": "ChaosBlade 官方文档",
+  "sourceUrl": "https://chaosblade.io/docs/",
+  "access": "提供开源命令行工具，可在主机运行，也可通过 Operator 接入 Kubernetes，配合 ChaosBlade-Box 管理实验。",
+  "maturity": "已发布正式版本，CNCF 沙箱项目。",
+  "license": "Apache-2.0",
+  "scenarios": [
+    "应用与微服务容错测试，验证接口或依赖异常时的降级与熔断逻辑",
+    "混合云与异构基础设施演练，覆盖物理机、虚拟机和 Kubernetes",
+    "基础资源压力测试，检验监控告警和自动扩缩容机制",
+    "常态化高可用红蓝对抗与灾备演练"
+  ],
+  "repositoryUrl": "https://github.com/chaosblade-io/chaosblade"
 }].filter(e=>!["TL001","TL002","TL003","TL004","TL005","TL006","TL007","TL008","TL009","TL010","TL011","TL012","TL013","TL014","TL015","TL016","TL017","TL018","TL019","TL020"].includes(e.id)),Te=[{id:`EX001`,overviewIcon:de,overviewSummary:`以冗余和裁决机制为核心，由代理服务实时同步两套功能等价的异构集群，并比对输出以发现风险、触发修复。`,name:`异构孪生网络控制器集群`,categories:[`网络韧性`,`控制系统`],summary:`通过原始集群与功能等价的异构孪生集群协同运行，以实时同步、输出比对和异常裁决提升控制服务韧性。`,description:`基于异构孪生的内生安全构造框架，以冗余和裁决机制增强系统容错能力与安全性。引入功能等价的异构集群作为镜像，由代理服务实时同步两套集群的数据，并对输出做实时比对分析，及时发现潜在安全风险并触发修复，保障服务连续性与数据完整性。`,steps:[`组件选型配置`,`接口适配与组合`,`DHR 组合构造`,`系统集成与韧性验证`,`成果验收交付`],outcomes:[`实时同步两套集群`,`输出比对与异常裁决`,`连续服务与数据完整`],image:ye,imageAlt:`异构孪生网络控制器集群架构图`,imageCaption:`原始集群与异构孪生集群通过流量镜像、数据同步和比较裁决形成闭环。`,origin:`项目自研`,access:`开放待确定`,maturity:`Alpha 版`,license:`待确认`},{id:`EX002`,overviewIcon:he,overviewSummary:`并行调用异构 WAF 引擎，经聚合裁决形成最终结论，并通过熔断降级保障服务连续性。`,name:`内生安全 WAF`,categories:[`应用安全`,`网络韧性`],summary:`由编排层并行调用异构 WAF 引擎，对检测结果进行聚合裁决，仅将最终判定为安全的流量转发至后端应用。`,description:`采用前置裁决架构，将检测与代理分离。编排层把请求标准化后并行调用多种异构 WAF 引擎，聚合各引擎的裁决动作、置信度、命中规则与检测延迟，并依据策略形成最终结论。系统支持运行模式切换、单引擎故障隔离、动态重构和异构差异率度量，在保持服务连续性的同时增强攻击链不可完全覆盖能力，P95 检测延迟目标小于 150 ms。`,steps:[`异构 WAF 组件选型`,`统一适配器接入`,`并行检测编排`,`聚合裁决与策略配置`,`熔断降级与成果验收`],outcomes:[`多引擎异构检测`,`七类裁决策略`,`故障隔离与动态重构`],image:`/endogenous-security-waf.png`,imageAlt:`内生安全 WAF 前置裁决架构图`,imageCaption:`客户端流量由编排层并行送入异构 WAF 引擎，检测结果经聚合与最终裁决后决定是否转发至后端应用。`,origin:`紫金山实验室内生安全研究中心`,access:`开放待确定`,maturity:`Alpha 版`,license:`待确认`}],Ee=[`全部`,`安全功能`,`异构组件`,`通信网络安全`,`计算环境安全`,`AI 安全`],De=[`全部`,`设计`,`开发`,`构建`,`测试`],Oe=[`全部`,`网络韧性`,`控制系统`,`应用安全`],ke=e=>e.includes(`AI`)?oe:e.includes(`通信`)||e.includes(`特种`)?de:e.includes(`云`)||e.includes(`异构`)?ie:e.includes(`管理`)?le:e.includes(`应用`)?w:he;function Ae(){let[e,t]=(0,h.useState)(``),[n,r]=(0,h.useState)(`全部`),[i,a]=(0,h.useState)(null),[o,s]=(0,h.useState)(``),[c,l]=(0,h.useState)(`全部`),[u,d]=(0,h.useState)(null),[f,p]=(0,h.useState)(``),[m,g]=(0,h.useState)(`全部`),[_,v]=(0,h.useState)(null),[y,ve]=(0,h.useState)(!1),xe=i?Se(i):null,Ae=(0,h.useMemo)(()=>{let t=e.trim().toLowerCase();return Ce.filter(e=>{let r=n===`全部`||e.group===n||e.category===n,i=`${e.id} ${e.name} ${e.category} ${e.summary}`.toLowerCase();return r&&(!t||i.includes(t))})},[n,e]),je=(0,h.useMemo)(()=>{let e=o.trim().toLowerCase();return we.filter(t=>{let n=c===`全部`||t.category===c,r=`${t.id} ${t.name} ${t.category} ${t.summary} ${t.input} ${t.output}`.toLowerCase();return n&&(!e||r.includes(e))})},[c,o]),Me=(0,h.useMemo)(()=>{let e=f.trim().toLowerCase();return Te.filter(t=>{let n=m===`全部`||t.categories.includes(m),r=`${t.id} ${t.name} ${t.categories.join(` `)} ${t.summary} ${t.description}`.toLowerCase();return n&&(!e||r.includes(e))})},[m,f]);
 const jumpToExample = (0,h.useRef)(false);
 function openFrameworkExample(example) {
