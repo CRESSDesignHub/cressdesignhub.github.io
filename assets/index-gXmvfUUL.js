@@ -127,6 +127,122 @@ Error generating stack: `+e.message+`
     "常态化高可用红蓝对抗与灾备演练"
   ],
   "repositoryUrl": "https://github.com/chaosblade-io/chaosblade"
+},
+{
+  "id": "TL066",
+  "name": "Jenkins",
+  "category": "构建",
+  "summary": "Jenkins 是开源自动化服务器，可通过任务、流水线和插件实现软件构建、测试与交付流程的自动化。",
+  "input": "源代码仓库及分支、Jenkinsfile 或任务配置、构建参数、凭据，以及 Webhook、定时或手动触发条件。",
+  "process": "按流水线或任务配置拉取代码，在控制器或代理节点依次执行构建、测试、质量检查和部署，并记录各阶段状态与日志。",
+  "output": "构建产物、测试结果、流水线阶段状态、控制台日志、部署结果，以及可通过 API 获取的任务元数据。",
+  "origin": "Jenkins 官方文档",
+  "sourceUrl": "https://www.jenkins.io/doc/",
+  "access": "支持本地部署（WAR、Docker、系统安装包）、Web UI、CLI、REST API 和插件扩展；核心开源免费，部署及运维资源由使用方承担。",
+  "maturity": "提供每周更新版和长期支持版（LTS）。",
+  "license": "MIT（Jenkins 核心）",
+  "scenarios": [
+    "持续集成与持续交付",
+    "自动构建和测试",
+    "定时任务",
+    "制品发布",
+    "部署编排",
+    "通过插件扩展研发自动化流程"
+  ],
+  "repositoryUrl": "https://github.com/jenkinsci/jenkins"
+},
+{
+  "id": "TL067",
+  "name": "GitLab CI/CD",
+  "category": "构建",
+  "summary": "GitLab CI/CD 是 GitLab 内置的持续集成与持续交付能力，通过 YAML 流水线配置和 GitLab Runner 自动执行构建、测试、安全扫描及部署任务。",
+  "input": "Git 仓库及分支或标签、.gitlab-ci.yml 及引用的流水线配置、任务输入与 CI/CD 变量、凭据，以及推送、合并请求、计划或手动触发事件。",
+  "process": "按阶段组织任务，由 GitLab Runner 拉取代码并执行脚本；同阶段任务可并行运行，阶段通常依次推进，并依据规则、条件和失败策略控制后续流程。",
+  "output": "流水线与任务状态、作业日志、测试报告、代码质量或安全扫描结果、构建制品、部署记录及环境状态。",
+  "origin": "GitLab CI/CD 官方文档",
+  "sourceUrl": "https://docs.gitlab.com/ci/",
+  "access": "支持 GitLab.com SaaS、GitLab Dedicated 和 Self-Managed 本地部署；通过 Web UI、YAML、API 和 Runner 使用；提供 Free、Premium、Ultimate 等等级。",
+  "maturity": "GitLab 正式产品功能，随平台版本维护。",
+  "license": "GitLab CE/FOSS 为 MIT，EE 包含专有许可代码。",
+  "scenarios": [
+    "持续集成与交付",
+    "自动构建和测试",
+    "制品管理",
+    "安全与合规扫描",
+    "评审应用",
+    "环境部署",
+    "与仓库及合并请求联动的 DevSecOps 流程"
+  ],
+  "repositoryUrl": "https://gitlab.com/gitlab-org/gitlab",
+  "repositoryLabel": "GitLab 仓库"
+},
+{
+  "id": "TL068",
+  "name": "Metasploit Framework",
+  "category": "测试",
+  "summary": "Rapid7 维护的开源安全评估框架，可用于复核已知风险、评估防护措施并整理评估记录。",
+  "input": "授权评估范围、资产与服务信息、待复核的安全问题和防护要求。",
+  "process": "依据评估范围核对风险证据，记录防护措施的表现并整理复核结果。",
+  "output": "评估日志、资产与风险记录，以及可供修复复查的工作区数据。",
+  "origin": "Metasploit Framework 官方文档",
+  "sourceUrl": "https://docs.metasploit.com/",
+  "access": "Framework 支持本地部署，核心开源免费。Metasploit Pro 为单独的商业产品。",
+  "maturity": "持续发布更新和 nightly 安装包。",
+  "license": "BSD-3-Clause，部分第三方组件采用各自许可证。",
+  "scenarios": [
+    "授权安全评估",
+    "漏洞通报复核与修复验收",
+    "防护措施有效性评估",
+    "安全教学与漏洞研究",
+    "安全评估模块的质量审查"
+  ],
+  "repositoryUrl": "https://github.com/rapid7/metasploit-framework"
+},
+{
+  "id": "TL069",
+  "name": "OWASP Nettacker",
+  "category": "测试",
+  "summary": "OWASP 的开源网络安全审计工具，用于清点资产、识别暴露的服务，并比较历次审计结果。",
+  "input": "授权资产清单、审计范围、检查策略，以及用于对比的历史结果。",
+  "process": "根据审计策略整理主机、服务和配置发现，保存结果并与历史记录对比。",
+  "output": "资产、服务、漏洞及错误配置清单，历史差异，以及 HTML、JSON、CSV 或 TXT 报告。",
+  "origin": "OWASP Nettacker 官方文档",
+  "sourceUrl": "https://nettacker.readthedocs.io/en/latest/",
+  "access": "开源工具，可在本地或 Docker 中部署，提供命令行和 Web 界面。",
+  "maturity": "OWASP Lab 项目，已发布 v0.4.1。",
+  "license": "Apache-2.0",
+  "scenarios": [
+    "授权网络安全审计",
+    "攻击面梳理",
+    "资产清点",
+    "漏洞及错误配置排查",
+    "修复后的复查",
+    "资产与配置变化对比",
+    "CI/CD 安全监控"
+  ],
+  "repositoryUrl": "https://github.com/OWASP/Nettacker"
+},
+{
+  "id": "TL070",
+  "name": "Chaos Toolkit",
+  "category": "测试",
+  "summary": "Chaos Toolkit 是开源混沌工程工具包，以 JSON 或 YAML 声明实验，通过探测和动作验证系统在故障条件下的稳态与恢复能力。",
+  "input": "JSON/YAML 实验定义，包括稳态假设、容差、方法、动作、探测及可选回滚步骤，以及目标系统配置、环境变量和所需扩展。",
+  "process": "先通过探测检查稳态，再按实验定义执行故障注入和观测活动，随后再次验证稳态，并按配置执行回滚；可通过扩展对接不同基础设施和平台。",
+  "output": "实验执行状态、控制台日志和 JSON Journal（含各活动输出）；安装报告扩展后可生成 PDF、HTML 或 Markdown 报告。",
+  "origin": "Chaos Toolkit 官方文档",
+  "sourceUrl": "https://chaostoolkit.org/",
+  "access": "提供本地 Python/CLI 和 Docker 使用方式，支持开放 API 与扩展，可嵌入 CI/CD；核心开源免费，另有非开源的 Reliably 商业平台。",
+  "maturity": "已正式发布，提供多种平台扩展。",
+  "license": "Apache-2.0",
+  "scenarios": [
+    "系统弹性验证",
+    "故障注入与恢复演练",
+    "稳态假设检验",
+    "告警与应急流程验证",
+    "Kubernetes、云平台和主机环境的自动化混沌实验"
+  ],
+  "repositoryUrl": "https://github.com/chaostoolkit/chaostoolkit"
 }].filter(e=>!["TL001","TL002","TL003","TL004","TL005","TL006","TL007","TL008","TL009","TL010","TL011","TL012","TL013","TL014","TL015","TL016","TL017","TL018","TL019","TL020"].includes(e.id)),Te=[{id:`EX001`,overviewIcon:de,overviewSummary:`以冗余和裁决机制为核心，由代理服务实时同步两套功能等价的异构集群，并比对输出以发现风险、触发修复。`,name:`异构孪生网络控制器集群`,categories:[`网络韧性`,`控制系统`],summary:`通过原始集群与功能等价的异构孪生集群协同运行，以实时同步、输出比对和异常裁决提升控制服务韧性。`,description:`基于异构孪生的内生安全构造框架，以冗余和裁决机制增强系统容错能力与安全性。引入功能等价的异构集群作为镜像，由代理服务实时同步两套集群的数据，并对输出做实时比对分析，及时发现潜在安全风险并触发修复，保障服务连续性与数据完整性。`,steps:[`组件选型配置`,`接口适配与组合`,`DHR 组合构造`,`系统集成与韧性验证`,`成果验收交付`],outcomes:[`实时同步两套集群`,`输出比对与异常裁决`,`连续服务与数据完整`],image:ye,imageAlt:`异构孪生网络控制器集群架构图`,imageCaption:`原始集群与异构孪生集群通过流量镜像、数据同步和比较裁决形成闭环。`,origin:`项目自研`,access:`开放待确定`,maturity:`Alpha 版`,license:`待确认`},{id:`EX002`,overviewIcon:he,overviewSummary:`并行调用异构 WAF 引擎，经聚合裁决形成最终结论，并通过熔断降级保障服务连续性。`,name:`内生安全 WAF`,categories:[`应用安全`,`网络韧性`],summary:`由编排层并行调用异构 WAF 引擎，对检测结果进行聚合裁决，仅将最终判定为安全的流量转发至后端应用。`,description:`采用前置裁决架构，将检测与代理分离。编排层把请求标准化后并行调用多种异构 WAF 引擎，聚合各引擎的裁决动作、置信度、命中规则与检测延迟，并依据策略形成最终结论。系统支持运行模式切换、单引擎故障隔离、动态重构和异构差异率度量，在保持服务连续性的同时增强攻击链不可完全覆盖能力，P95 检测延迟目标小于 150 ms。`,steps:[`异构 WAF 组件选型`,`统一适配器接入`,`并行检测编排`,`聚合裁决与策略配置`,`熔断降级与成果验收`],outcomes:[`多引擎异构检测`,`七类裁决策略`,`故障隔离与动态重构`],image:`/endogenous-security-waf.png`,imageAlt:`内生安全 WAF 前置裁决架构图`,imageCaption:`客户端流量由编排层并行送入异构 WAF 引擎，检测结果经聚合与最终裁决后决定是否转发至后端应用。`,origin:`紫金山实验室内生安全研究中心`,access:`开放待确定`,maturity:`Alpha 版`,license:`待确认`}],Ee=[`全部`,`安全功能`,`异构组件`,`通信网络安全`,`计算环境安全`,`AI 安全`],De=[`全部`,`设计`,`开发`,`构建`,`测试`],Oe=[`全部`,`网络韧性`,`控制系统`,`应用安全`],ke=e=>e.includes(`AI`)?oe:e.includes(`通信`)||e.includes(`特种`)?de:e.includes(`云`)||e.includes(`异构`)?ie:e.includes(`管理`)?le:e.includes(`应用`)?w:he;function Ae(){let[e,t]=(0,h.useState)(``),[n,r]=(0,h.useState)(`全部`),[i,a]=(0,h.useState)(null),[o,s]=(0,h.useState)(``),[c,l]=(0,h.useState)(`全部`),[u,d]=(0,h.useState)(null),[f,p]=(0,h.useState)(``),[m,g]=(0,h.useState)(`全部`),[_,v]=(0,h.useState)(null),[y,ve]=(0,h.useState)(!1),xe=i?Se(i):null,Ae=(0,h.useMemo)(()=>{let t=e.trim().toLowerCase();return Ce.filter(e=>{let r=n===`全部`||e.group===n||e.category===n,i=`${e.id} ${e.name} ${e.category} ${e.summary}`.toLowerCase();return r&&(!t||i.includes(t))})},[n,e]),je=(0,h.useMemo)(()=>{let e=o.trim().toLowerCase();return we.filter(t=>{let n=c===`全部`||t.category===c,r=`${t.id} ${t.name} ${t.category} ${t.summary} ${t.input} ${t.output}`.toLowerCase();return n&&(!e||r.includes(e))})},[c,o]),Me=(0,h.useMemo)(()=>{let e=f.trim().toLowerCase();return Te.filter(t=>{let n=m===`全部`||t.categories.includes(m),r=`${t.id} ${t.name} ${t.categories.join(` `)} ${t.summary} ${t.description}`.toLowerCase();return n&&(!e||r.includes(e))})},[m,f]);
 const jumpToExample = (0,h.useRef)(false);
 function openFrameworkExample(example) {
